@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 10
+names: ['ball', 'circle cage', 'cube', 'cylinder', 'human body', 'metal bucket', 'plane', 'rov', 'square cage', 'tyre']
+
+roboflow:
+  workspace: itch
+  project: underwater-acoustic-target-detection-uatd
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/itch/underwater-acoustic-target-detection-uatd/dataset/1
