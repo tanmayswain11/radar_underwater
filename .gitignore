@@ -1,70 +1,59 @@
-# =========================
-# 🔥 MODELS (VERY IMPORTANT)
-# =========================
-*.pth
-*.pt
-*.onnx
-*.engine
-
-# =========================
-# 📦 DATASETS
-# =========================
-data/
-datasets/
-*.zip
-*.tar
-*.gz
-
-# =========================
-# 🧠 YOLO TRAINING OUTPUT
-# =========================
-runs/
-wandb/
-
-# =========================
-# 🧹 CACHE & TEMP FILES
-# =========================
+# ---------------- PYTHON ----------------
 __pycache__/
-*.pyc
+*.py[cod]
 *.pyo
 *.pyd
-*.log
-temp.png
-*.tmp
+*.so
 
-# =========================
-# 🌍 ENVIRONMENT FILES
-# =========================
+# Virtual environment
 venv/
-.env
-.env.local
+env/
+myenv/
+.venv/
 
-# =========================
-# 🧪 JUPYTER
-# =========================
+# ---------------- JUPYTER ----------------
 .ipynb_checkpoints/
 
-# =========================
-# 🖥️ OS FILES
-# =========================
+# ---------------- STREAMLIT ----------------
+.streamlit/
+
+# ---------------- DATASETS (IMPORTANT) ----------------
+data/
+dataset/
+datasets/
+
+# ---------------- YOLO TRAINING OUTPUT ----------------
+runs/
+*.pt
+*.onnx
+
+# ---------------- MODEL FILES ----------------
+model/**/*.pth
+model/**/*.pkl
+
+# ---------------- METRICS ----------------
+metrics/
+
+# ---------------- TEMP FILES ----------------
+temp.png
+*.log
+*.tmp
+
+# ---------------- OS FILES ----------------
 .DS_Store
 Thumbs.db
 
-# =========================
-# ⚙️ IDE FILES
-# =========================
+# ---------------- IDE ----------------
 .vscode/
 .idea/
 
-# =========================
-# 📊 STREAMLIT CACHE
-# =========================
-.streamlit/
+# ---------------- CACHE ----------------
+.cache/
 
-# =========================
-# 🔒 LARGE FILES (OPTIONAL)
-# =========================
-*.mp4
-*.avi
-*.wav
-*.h5
+# ---------------- ENV VARIABLES ----------------
+.env
+
+# ---------------- LARGE FILES ----------------
+*.zip
+*.tar
+*.gz

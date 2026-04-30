@@ -61,7 +61,7 @@ def load_svm():
 
 @st.cache_resource
 def load_underwater_model():
-    return YOLO("runs/detect/train-5/weights/best.pt")
+    return YOLO("runs/detect/train/weights/best.pt")
 
 with st.spinner("🚀 Initializing AI Models..."):
     svm_model, scaler, svm_classes = load_svm()
