@@ -346,6 +346,8 @@ import time
 import pyttsx3
 import json
 
+from PIL import Image
+
 from ultralytics import YOLO
 
 from model.cnn.predict import predict_image
@@ -381,16 +383,33 @@ body { background-color: #0b0f1a; color: white; }
 """, unsafe_allow_html=True)
 
 # ---------------- HEADER ----------------
-col1, col2, col3 = st.columns([1,3,1])
+
+col1, col2, col3 = st.columns([1, 4, 1])
 
 with col1:
-    st.image("logos/bput.png", width=90)
+    st.image("logos/bput.png", width=120)
 
 with col2:
-    st.markdown('<div class="title">AI-Driven Micro-Doppler Radar System for sUAV Detection with Underwater Analysis</div>', unsafe_allow_html=True)
+    st.markdown(
+        """
+        <div style="
+            text-align: center;
+            color: #00FFFF;
+            font-size: 38px;
+            font-weight: bold;
+            line-height: 1.3;
+            margin-top: 20px;
+            text-shadow: 0 0 10px #00FFFF, 0 0 30px #00FFFF;
+        ">
+        AI-Driven Micro-Doppler Radar System for sUAV Detection with<br>
+        Underwater Analysis
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
 with col3:
-    st.image("logos/rooman.png", width=90)
+    st.image("logos/rooman.png", width=120)
 
 st.markdown("---")
 
@@ -568,7 +587,7 @@ with colC:
     plt.close(fig3)
 # ================= MODEL PERFORMANCE =================
 st.markdown("---")
-st.subheader("📊 Model Performance")
+st.subheader("📊Radar Model Performance")
 
 try:
     with open("metrics/metrics.json") as f:
@@ -651,6 +670,41 @@ try:
 
 except:
     st.warning("⚠️ Train models first")
+
+#------------------------ Under Water Performance-------------------------------------
+st.markdown(
+    """
+    <style>
+    img {
+        height: 350px !important;
+        object-fit: contain;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+st.markdown("---")
+st.subheader("🌊 Underwater Performance")
+
+# Load images
+confusion = Image.open("runs/detect/train/confusion_matrix.png")
+result = Image.open("runs/detect/train/results.png")
+labels = Image.open("runs/detect/train/labels.jpg")
+
+# Create equal columns
+col1, col2, col3 = st.columns(3)
+
+# Display images
+with col1:
+    st.image(confusion, caption="Confusion Matrix", width='stretch')
+
+with col2:
+    st.image(result, caption="Result", width='stretch')
+
+with col3:
+    st.image(labels, caption="Labels", width='stretch')
+
 
 # ---------------- FOOTER ----------------
 st.markdown("---")
